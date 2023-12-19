@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from './Store'; // Import actions from store
+import { deleteContact } from './Store';
 import ContactItem from './ContactItem';
 
 const ContactList = () => {
-  const contacts = useSelector(state => state.contacts); // Select contacts from Redux state
+  const contacts = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
   return (
@@ -13,7 +13,7 @@ const ContactList = () => {
         <ContactItem
           key={contact.id}
           contact={contact}
-          onDelete={() => dispatch(deleteContact(contact.id))} // Dispatch action to delete contact
+          onDelete={() => dispatch(deleteContact(contact.id))}
         />
       ))}
     </ul>

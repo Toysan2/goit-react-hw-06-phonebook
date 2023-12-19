@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFilter } from './Store'; // Import actions from store
+import { updateFilter } from './Store';
 import './Filter.css';
 
 const Filter = () => {
-  const filter = useSelector(state => state.filter); // Select filter from Redux state
+  const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const handleChange = event => {
-    dispatch(updateFilter(event.target.value)); // Dispatch action to update filter
+    dispatch(updateFilter(event.target.value));
   };
 
   return (
