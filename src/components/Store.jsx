@@ -32,11 +32,11 @@ const filterReducer = createReducer(initialState.filter, builder => {
 });
 
 // Store
-const Store = configureStore({
+const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     filter: filterReducer,
   },
 });
 
-export default Store;
+export default store;

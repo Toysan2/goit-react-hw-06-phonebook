@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addContact } from './Store'; // Import actions from store
+import { nanoid } from 'nanoid'; // Import nanoid to generate unique IDs
 import './ContactForm.css';
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -13,7 +17,7 @@ const ContactForm = ({ onSubmit }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit({ name, number });
+    dispatch(addContact({ id: nanoid(), name, number })); // Dispatch action to add contact
     setName('');
     setNumber('');
   };
