@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, updateFilter } from './Store';
+import { actions } from '../store';
+const { addContact, updateFilter } = actions;
 import Filter from './Filter';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';

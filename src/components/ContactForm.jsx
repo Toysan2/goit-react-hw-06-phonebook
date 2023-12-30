@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from './Store';
+import { addContact } from '../store';
 import { nanoid } from 'nanoid';
 import './ContactForm.css';
 
