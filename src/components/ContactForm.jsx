@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../store';
+import { actions } from '../store';
 import { nanoid } from 'nanoid';
 import './ContactForm.css';
+
+const { addContact } = actions;
 
 const ContactForm = () => {
   const [name, setName] = useState('');

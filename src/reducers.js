@@ -1,6 +1,10 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
-import initialState from './path-to-initialState';
 import { addContact, deleteContact, updateFilter } from './actions';
+
+const initialState = {
+  contacts: [],
+  filter: ''
+};
 
 // Reducers using builder callback notation
 const contactsReducer = createReducer(initialState.contacts, builder => {
@@ -22,12 +26,5 @@ const filterReducer = createReducer(initialState.filter, builder => {
   });
 });
 
-// Store
-const store = configureStore({
-  reducer: {
-    contacts: contactsReducer,
-    filter: filterReducer,
-  },
-});
-
 export default store;
+export default { contactsReducer, filterReducer };
