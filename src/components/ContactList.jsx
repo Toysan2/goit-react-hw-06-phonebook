@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../store';
-const { deleteContact, updateFilter } = actions;
-
+import PropTypes from 'prop-types';
 import ContactItem from './ContactItem';
+
+const { deleteContact, updateFilter } = actions;
 
 const ContactList = () => {
   const contacts = useSelector(state => state.contacts);
@@ -41,6 +41,15 @@ const ContactList = () => {
       </ul>
     </>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired
+  })),
+  filter: PropTypes.string
 };
 
 export default ContactList;

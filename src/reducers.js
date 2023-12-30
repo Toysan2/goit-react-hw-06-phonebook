@@ -26,5 +26,4 @@ const filterReducer = createReducer(initialState.filter, builder => {
   });
 });
 
-export default store;
-export default { contactsReducer, filterReducer };
+export { contactsReducer, filterReducer };
