@@ -1,29 +1,27 @@
-import '../components/SharedLayouts.css';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '../store';
+import { actions } from '../redux/store';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
-const { addContact } = actions;
 
+const { initializeContacts } = actions;
 
 const App = () => {
   const dispatch = useDispatch();
-    useEffect(() => {
+
+  useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
     if (storedContacts) {
-      JSON.parse(storedContacts).forEach(contact =>
-        dispatch(addContact(contact))
-      );
+      dispatch(initializeContacts(JSON.parse(storedContacts)));
     }
   }, [dispatch]);
 
-    return (
+  return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-            <ContactList />
+      <ContactList />
     </div>
   );
 };

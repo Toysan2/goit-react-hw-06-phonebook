@@ -10,4 +10,4 @@ const initialState = {
 export const addContact = createAction('contacts/add');
 export const deleteContact = createAction('contacts/delete');
 export const updateFilter = createAction('filter/update');
-
+export const initializeContacts = createAction('contacts/initialize');

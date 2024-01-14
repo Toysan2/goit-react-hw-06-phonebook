@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actions } from '../store';
+import { actions } from '../redux/store';
 import PropTypes from 'prop-types';
 import ContactItem from './ContactItem';
 
@@ -15,7 +15,7 @@ const ContactList = () => {
     dispatch(updateFilter(event.target.value));
   };
 
-  const filteredContacts = contacts.filter(contact => 
+  const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
@@ -44,12 +44,14 @@ const ContactList = () => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired
-  })),
-  filter: PropTypes.string
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  filter: PropTypes.string,
 };
 
 export default ContactList;
